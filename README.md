@@ -22,8 +22,3 @@
 * LLM (1st Pass): NCSOFT/Llama-VARCO-8B-Instruct
 * LLM (2nd Pass): Qwen/Qwen2.5-14B-Instruct-1M
 * Core Libraries: Hugging Face
-
-## 💡 Lessons Learned
-* 논문 리서치와 파이프라인 디벨롭: 1인 개발이라는 부담감 속에서도, 관련 논문을 직접 찾아보고 디벨롭하여 2-Pass Generation 파이프라인을 직접 구현하는 과정에서 큰 배움을 얻었습니다.
-* 서비스 관점의 AI 제어: 단순히 AI 기술뿐만 아니라, 사용자가 원하는 정확한 포맷으로 제어하는 서비스적인 기술도 필요함을 느꼈습니다.
-* 실전 트러블슈팅: 라이브러리 버전 충돌, API 사용 등 학교에서 배울 수 없는 실전 환경의 이슈들을 디버깅하며 엔지니어로서의 밑거름을 다졌습니다.
