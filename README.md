@@ -12,6 +12,7 @@
 - **RAG 파이프라인:** LangChain을 활용하여 FAISS 벡터 스토어에서 효율적으로 관련 정보를 검색하고, Hugging Face의 언어 모델(LLM)을 통해 자연스러운 문장을 생성합니다.
 - **PDF 문서 처리:** `건설안전지침` PDF 파일들을 벡터화하여, 법규 및 지침에 기반한 답변을 생성할 수 있는 기반을 마련합니다. (현재는 QA 데이터 기반 Retriever 사용)
 - **모듈화된 구조:** `src` 폴더 내에 데이터 로딩, 전처리, 모델 관리, RAG 체인 등의 기능이 모듈별로 깔끔하게 정리되어 유지보수와 확장이 용이합니다.
+- **2-Pass Generation 파이프라인:** 1차로 `NCSOFT/Llama-VARCO-8B-Instruct` 모델을 사용하여 답변 초안을 생성하고, 2차로 `Qwen/Qwen2.5-14B-Instruct-1M` 모델이 초안과 검색된 컨텍스트를 기반으로 최종 핵심 답변을 생성합니다. 이를 통해 긴 컨텍스트 처리 시 발생하는 노이즈를 제어하고 답변의 정확도를 높입니다.
 
 ## 📂 프로젝트 구조
 
@@ -76,8 +77,10 @@ python main.py
 
 - Python 3.x
 - PyTorch
-- Hugging Face (Transformers, Sentence-Transformers)
-- LangChain
+- Hugging Face LLMs:
+  - `NCSOFT/Llama-VARCO-8B-Instruct (1st Pass)`
+  - `Qwen/Qwen2.5-14B-Instruct-1M (2nd Pass)`
+- LangChain, Transformers, Sentence-Transformers
 - FAISS (Facebook AI Similarity Search)
 - Pandas, NumPy
 - Kiwipiepy (한국어 형태소 분석기)
